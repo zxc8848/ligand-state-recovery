@@ -724,15 +724,16 @@ study is not an evaluation of this neural decoder.
 
 ## 11. Release synchronization
 
-The new supplementary study and manuscript changes are local until explicitly
-uploaded. Before submission, synchronize the revised code/report artifacts to GitHub
-and the required new reproducibility data to Zenodo; do not imply the existing
-archive already contains the November studies. In particular, the CCD candidate
-inputs, protocols, code, output receipts and source-scope correction above still
-need synchronization, as do the §8.2 reviewer-control scripts, inputs/outputs and
-receipts, §6.4 geometry/provenance analysis, and the supplementary diagnostics;
-the §6.5 complete-output native comparison, archived raw graph audit and §10
-missing-charge pilot must also be synchronized;
-this editing task does not upload them. The companion BondNet article is cited
-as in press until its final bibliographic details are available.
+The [public code repository](https://github.com/zxc8848/ligand-state-recovery)
+releases the source under MIT, subject to its third-party notices.
+[Zenodo v2.2](https://doi.org/10.5281/zenodo.24071196) retains the v2.1 data ZIP
+and adds the CC BY 4.0 inference ZIP with three Stage C completion heads and
+the aggregate atom-state catalogue. Use the
+[supplied-charge inference instructions](https://github.com/zxc8848/ligand-state-recovery/tree/main/tools/release_inference)
+to obtain the separate public encoder and run Stage C on supplied coordinates.
+
+Commands above that require PDBBind-derived poses, original serialized training
+checkpoints, training caches, per-molecule catalogue sources or historical
+comparator inputs still require those exact files. The public archive does not
+reconstruct the locked-pose benchmark end to end.
 

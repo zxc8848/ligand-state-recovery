@@ -7,9 +7,11 @@ perform the separate Stage D graph rewrite.
 
 1. Install the Python dependencies specified in the repository's
    `environment.yml`.
-2. Obtain the separate CC BY 4.0 inference asset bundle
-   `ligand_state_recovery_inference_v1.0.0.zip` and extract it into a directory
-   named `inference_assets`. Verify its included `SHA256SUMS.txt`.
+2. Download `ligand_state_recovery_inference_v1.0.0.zip` from
+   [Zenodo v2.2](https://doi.org/10.5281/zenodo.24071196) (CC BY 4.0) and
+   extract it into a directory named `inference_assets`. Verify its included
+   `SHA256SUMS.txt`. The other ZIP in the record contains data and result
+   artifacts; it is not needed for this command-line inference.
 3. From the repository root, fetch the checked public encoder from the
    [BondNet v4.1 archive](https://doi.org/10.5281/zenodo.23080342):
 

@@ -5,17 +5,20 @@ The main method uses heavy-atom elements and coordinates and a supplied total
 charge. The archived two-stage pipeline is a comparator. The missing-charge
 pilot and ring-coherence evaluation are separate studies.
 
-The [v2.1 data archive](https://doi.org/10.5281/zenodo.24066310) contains CCD data
-and result artifacts. It does not contain the exact PDBBind pose inputs, the
-new completion-head weights, training caches, or the training-derived catalogue.
-The public code and data alone do not rerun the locked pose result end to end.
+The [v2.2 data and inference archive](https://doi.org/10.5281/zenodo.24071196)
+retains the CCD data and result artifacts from v2.1 and adds the three Stage C
+completion heads and the aggregate atom-state catalogue. The inference-only
+encoder comes from the companion BondNet v4.1 archive. The public materials
+do not contain the exact PDBBind poses, training caches, per-molecule catalogue
+source, or all historical replay inputs; they do not reproduce the locked
+pose benchmark end to end.
 
 For prediction on user-supplied heavy-atom coordinates, see the
 [supplied-charge inference instructions](tools/release_inference/README.md).
 
 ## Validate and reproduce
 
-Use a clean code checkout and extract the v2.1 data ZIP at its root without
+Use a clean code checkout and extract the data ZIP retained from v2.1 at its root without
 overwriting tracked code. Verify the archived inputs and install the environment
 from `environment.yml`. From the checkout root:
 
