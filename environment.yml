@@ -1,0 +1,25 @@
+# Reproduction environment for
+#   "Template-Free Heavy-Atom Bond Perception on Real Ligand Poses"
+#
+# Pinned current environment, not historical checkpoint provenance.
+#
+# Host OS: Windows 10 (build 26200). GPU: NVIDIA GeForce RTX 4090 (24 GB), driver
+# 591.74. PyTorch was built against CUDA 12.1 (pytorch-cuda=12.1); the driver
+# supports up to CUDA 13.1. Knodle: INRIA NANO-D academic Linux static binary (WSL).
+#
+# Recreate with:  conda env create -f environment.yml
+name: bondnet-repro
+channels:
+  - conda-forge
+  - pytorch
+  - nvidia
+dependencies:
+  - python=3.10.19
+  - rdkit=2025.09.6
+  - numpy=2.2.5
+  - scipy=1.13.1            # provides the MILP decoder: scipy.optimize.milp (HiGHS)
+  - openbabel=3.1.0         # rule baseline (OpenBabel Python bindings)
+  - pytorch=2.5.1           # GPU build actually used
+  - pytorch-cuda=12.1       # CUDA 12.1
+  - matplotlib=3.10.8       # figures
+  # No separate MILP solver package (no pulp/CBC): HiGHS ships inside scipy.

@@ -1,0 +1,57 @@
+{
+ "schema": "bondnet.diagnostic-manifest.v2",
+ "created_utc": "2026-11-02T01:58:50.593980+00:00",
+ "note": "Diagnostic additions made AFTER the locked benchmark was read. The frozen manifest is referenced by digest and is not modified. It remains the record of the code state that produced the locked numbers. Declared reasons record purpose, not a proof that default outputs are equivalent.",
+ "frozen_manifest": {
+  "path": "results\\FROZEN_MANIFEST_V3_1_2026-10-05.json",
+  "sha256": "63aa2abb1b53b8306fe72ded0e8942312c78cae36f338fb1fea2b92bcd072056",
+  "entries": 162
+ },
+ "changed": [
+  {
+   "path": "experiments/prob_mask_20261002/pose_localmap.py",
+   "frozen_sha256": "89e159801e7cf4fd2de6e1fef296af086cec1b40d02009e5a19ef76f5fe94d89",
+   "current_sha256": "17b429bd91fd7461703ca24d1720558ccb07b0fbee9e726e245c0f61dd9f6907",
+   "declared_reason": "Added --noise_seed (default 11, the value every published condition used) and --permute_seed (default 0 = no renumbering). Added localmap_states, localmap_smiles and permutation to each record. Defaults reproduce the released decode exactly; verify_frozen_config.py asserts both defaults."
+  },
+  {
+   "path": "experiments/prob_mask_20261002/verify_frozen_config.py",
+   "frozen_sha256": "8d9056bf0ef5f52d48bc20bf4c1c0198dfc60bd42e13f11315e97d54e1d33d5a",
+   "current_sha256": "2283657434d4a398f812a8d9dff6d39461306eae49f845e45b4c671e2e4f1923",
+   "declared_reason": "Added assertions that permute_seed == 0 and noise_seed == 11. The file checks the configuration; it does not participate in inference."
+  }
+ ],
+ "added_since_freeze": [
+  {
+   "path": "experiments/prob_mask_20261002/atom_order_invariance.py",
+   "current_sha256": "5c560411fda98cdbbb76d3104bb52e0478903603a52c3b05e509140607a77781",
+   "declared_reason": "New. Compares decodes under atom renumbering. Pure analysis of saved runs."
+  },
+  {
+   "path": "experiments/prob_mask_20261002/diagnostic_manifest.py",
+   "current_sha256": "2824f2a42315df567ee556cc140f321361fd9ae28da008bd04fd31219654c20b",
+   "declared_reason": "New. This file; checks registered changes and scans the original source inventory for undeclared additions. Registration does not certify default-output equivalence."
+  },
+  {
+   "path": "experiments/prob_mask_20261002/external_state_baseline.py",
+   "current_sha256": "f5082769a54e103800889df3051960787a160b31928fd21a27f275fdf6796d3d",
+   "declared_reason": "New. Completes an external bond graph with the training catalogue and the charge solver. Reads no checkpoint and touches no released output."
+  },
+  {
+   "path": "experiments/prob_mask_20261002/kekule_adapter.py",
+   "current_sha256": "eb46b7f837453e5e237d439ae202b3236d5c766c7aece9ae7c6d3dc310b7fee1",
+   "declared_reason": "New. Failed graph-matching control used only by the post hoc external completion diagnostic. Not used for original released inference; matching legality is not chemical validity."
+  },
+  {
+   "path": "experiments/prob_mask_20261002/noise_seed_variance.py",
+   "current_sha256": "6fecf09a25b715e6e22e0db7349ccd8d8418d82e7774625fe5e2a22287256d13",
+   "declared_reason": "New. Aggregates decodes across noise seeds. Pure analysis of saved runs."
+  },
+  {
+   "path": "experiments/prob_mask_20261002/reference_selfscore.py",
+   "current_sha256": "a59991f4d60771000bbb6103fbd139b928fb6754426a6388d8f0b631ff6b7dc6",
+   "declared_reason": "New. Measures the graph-SMILES endpoint self-score on reference graphs. Runs no model and writes no prediction."
+  }
+ ],
+ "missing": []
+}

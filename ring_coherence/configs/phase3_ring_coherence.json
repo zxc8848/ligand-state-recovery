@@ -1,0 +1,39 @@
+{
+  "model": "StructuredHybridILPModel",
+  "base_model": "frozen Phase-2 HybridizationILPModel",
+  "task": "recover heavy-atom connectivity, bond orders, formal charges, and total hydrogen labels from elements and 3D coordinates",
+  "deployable_charge_track": "unknown",
+  "training_set": "Astex Diverse 85 references",
+  "development_domains": [
+    "Astex crystal 5-fold cross-validation",
+    "Astex ETKDG+UFF start conformers 5-fold cross-validation",
+    "PoseBench DiffDock top-1 5-fold cross-validation",
+    "PoseBench Vina top-1 5-fold cross-validation",
+    "GenBench3D Pocket2Mol cross-pocket raw, one deterministic molecule per pocket"
+  ],
+  "selected_parameters": {
+    "ring_reward": 1.0,
+    "ring_sizes": [5, 6],
+    "ring_elements_atomic_numbers": [6, 7, 8, 15, 16],
+    "maximum_planarity_rms_angstrom": 0.15,
+    "ring_edge_length_range_angstrom": [1.25, 1.50],
+    "maximum_ring_edge_length_std_angstrom": 0.10,
+    "functional_group_constraints": false
+  },
+  "ring_reward_values_examined": [0.25, 0.5, 1.0, 2.0, 4.0],
+  "selection_rule": "Choose the smallest reward on the development domains that attains the best observed Astex and Pocket2Mol L2-isomorphic accuracy without any hybrid-v1-only correct cases in any domain. This selects 1.0 over 2.0 because 2.0 creates two Pocket2Mol regressions.",
+  "rejected_component": "Hard functional-group constraints were rejected because they reduced L2-isomorphic accuracy in every informative development domain and caused one Pocket2Mol solver/evaluation failure.",
+  "primary_metric": "L2 isomorphic, unknown net charge, all selected molecules in denominator",
+  "secondary_metrics": [
+    "L1 exact connectivity",
+    "L3 isomorphic",
+    "paired exact McNemar test",
+    "failure count"
+  ],
+  "contamination": {
+    "phase2_rcsb_2024_500_files_read_by_phase3_development_evaluator": false,
+    "phase2_rcsb_2024_500_error_analysis_informed_model_direction": true,
+    "phase2_rcsb_2024_500_allowed_as_phase3_external_test": false
+  },
+  "external_evaluation_policy": "The 500-molecule Phase-2 RCSB set is permanently development-contaminated for Phase 3. Do not run this model on it. Freeze code and selection before constructing a fresh non-overlapping external set, then evaluate once."
+}

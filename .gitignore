@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pt
+*.sdf
+*.sdf.gz
+*.jsonl
+/data/
+/work/
+/checkpoints/
+/external/
+/release/

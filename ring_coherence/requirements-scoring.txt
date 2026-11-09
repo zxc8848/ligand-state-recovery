@@ -1,0 +1,5 @@
+rdkit==2026.3.6
+numpy==2.2.5
+scipy==1.15.3
+pandas==2.3.3
+networkx==3.4.2
