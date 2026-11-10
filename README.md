@@ -10,8 +10,10 @@ retains the CCD data and result artifacts from v2.1 and adds the three Stage C
 completion heads and the aggregate atom-state catalogue. The inference-only
 encoder comes from the companion BondNet v4.1 archive. The public materials
 do not contain the exact PDBBind poses, training caches, per-molecule catalogue
-source, or all historical replay inputs; they do not reproduce the locked
-pose benchmark end to end.
+source, or all historical replay inputs; they do not reproduce the historical
+locked pose benchmark end to end. The [public-source replay](reproduction/public_pose491/README.md)
+rebuilds all 491 eligible inputs from wwPDB and CCD without PDBBind and reproduces
+the current model's complete-state scores, using the public inference assets.
 
 For prediction on user-supplied heavy-atom coordinates, see the
 [supplied-charge inference instructions](tools/release_inference/README.md).

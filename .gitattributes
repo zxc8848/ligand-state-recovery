@@ -1,1 +1,6 @@
 * -text
+reproduction/public_pose491/* text eol=lf
+scripts/*public*pose*.py text eol=lf
+scripts/evaluate_pose_external_states.py text eol=lf
+scripts/attribute_pose_recovery_failures.py text eol=lf
+scripts/export_knodle_geometry_only.py text eol=lf
